@@ -1,5 +1,5 @@
-.env
-vendor
-local_tests
-composer.lock
 composer.phar
+composer.lock
+vendor
+.DS_store
+local_tests
