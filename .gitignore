@@ -1,3 +1,5 @@
 .env
 vendor
 local_tests
+composer.lock
+composer.phar
