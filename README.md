@@ -14,4 +14,7 @@ To use the Framework you can clone this repo.
 
 [something about the $stack principe here maby someday ;)?]
 
+## The MVC
+
+-- Controllers are autoloaded, (i'm working on this part): Models should be used from within the controller
 
