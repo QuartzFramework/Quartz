@@ -11,6 +11,14 @@ class App {
 	// current data stack, this will be rendered out
 	private $stack;
 
+	// holds the settings
+	private $settings = [
+		'return' => 'default', # default/json/ {Your custom return types}
+		#.. more settings here
+
+	];
+
+
 	/**
 	 * Constructs the basic Routing
 	 * @param String [$route = false] The basic routing path that will be used,
@@ -25,8 +33,9 @@ class App {
 			// check if the page is located from index.php or via htacces
 			if (strpos($_SERVER['REQUEST_URI'],'index.php') !== false):
 				$route = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
+				// strip the index.php here please..
 			else:
-				$route = '/'.str_replace(str_replace('index.php','',$_SERVER['SCRIPT_NAME']),'',$_SERVER['REQUEST_URI']);
+				$route = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
 			endif;
 		endif;
 		static::$route = $route;
@@ -50,7 +59,7 @@ class App {
 			array_shift($reqs);
 
 			// break down, when the param count does not match
-			if(count($reqs) != count($params)): return false; endif;
+			if(count($reqs) != count($params)):return false; endif;
 
 			$regex = '/{(.*)}/';
 			$vars = array();
@@ -89,19 +98,28 @@ class App {
 		return false;
 	}
 
-	public function run(){
+	public function run($settings = false){
+		if($settings):
+			$this->settings = array_merge($this->settings,$settings);
+		endif;
 
+		if(empty($this->stack['prints'])):
+			return;
+		endif;
+
+		$stack = [];
 		foreach($this->stack['prints'] as $print):
-			if(is_array($print)):
-				echo'<pre>';
-				print_r($print);
-				echo'</pre>';
+			if(is_string($print)):
+				$stack[] = $print;
 			else:
-				echo $print;
+				$stack[] = $print;
 			endif;
 		endforeach;
-		exit;
 
+		if(strtolower($this->settings['return']) === 'json'):
+			$stack = json_encode($stack);
+		endif;
+		return $stack;
 	}
 
 	public function add($alias, $recourse){
