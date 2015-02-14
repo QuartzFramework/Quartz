@@ -7,10 +7,10 @@ class App {
 
 	// The Route that will be used to match paths against.
 	private static $route;
-	
+
 	// current data stack, this will be rendered out
 	private $stack;
-	
+
 	/**
 	 * Constructs the basic Routing
 	 * @param String [$route = false] The basic routing path that will be used,
@@ -31,7 +31,7 @@ class App {
 		endif;
 		static::$route = $route;
 	}
-	
+
 	/**
 	 * Matches Protocol, and path
 	 * @param  String $protocol The protocol that should've been used
@@ -40,21 +40,21 @@ class App {
 	 * @return boolean  Will return false on no match, will return true and run your funciton on match
 	 */
 	public function match($protocol, $path, $function = false){
-		
+
 		if($protocol === $_SERVER['REQUEST_METHOD']):
-		
+
 			$params = (explode('/',static::$route));
 			array_shift($params);
-		
+
 			$reqs = (explode('/',$path));
 			array_shift($reqs);
-		
+
 			// break down, when the param count does not match
 			if(count($reqs) != count($params)): return false; endif;
 
 			$regex = '/{(.*)}/';
 			$vars = array();
-			
+
 			foreach($reqs as $key => $req):
 				preg_match($regex,$req,$matches);
 				if(isset($matches[1]) && !empty($matches[1]) && isset($params[$key]) && $params[$key] != ''):
@@ -65,19 +65,19 @@ class App {
 					// not variable
 				endif;
 			endforeach;
-		
-			// run the given function 
+
+			// run the given function
 			if($function):
-				$this->stack .= $function($vars);
+				$this->stack['prints'][] = $function($vars,$this->stack['resources']);
 			endif;
-			
+
 			// return true, you made it!
 			return true;
 		endif;
 		// nop protocol miss match
 		return false;
 	}
-	
+
 	/**
 	 * run $this->match with an 'GET' protocol
 	 * @param  String $path               The string that will be matched
@@ -88,17 +88,24 @@ class App {
 		if($this->match('GET',$path,$function)): return true; endif;
 		return false;
 	}
-	
+
 	public function run(){
-		if(is_array($this->stack)):
-			echo'<pre>';
-			print_r($this->stack);
-			echo'</pre>';
-		else:
-			echo $this->stack;
-		endif;
+
+		foreach($this->stack['prints'] as $print):
+			if(is_array($print)):
+				echo'<pre>';
+				print_r($print);
+				echo'</pre>';
+			else:
+				echo $print;
+			endif;
+		endforeach;
 		exit;
-		
+
+	}
+
+	public function add($alias, $recourse){
+		$this->stack['resources'][$alias] = $recourse;
 	}
 
 }
