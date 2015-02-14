@@ -126,4 +126,15 @@ class App {
 		$this->stack['resources'][$alias] = $recourse;
 	}
 
+	public function renderView($contents){
+		if(is_array($contents)):
+			foreach($contents as $content):
+				echo $content;
+			endforeach;
+			return;
+		endif;
+		echo $contents;
+		return;
+	}
+
 }
