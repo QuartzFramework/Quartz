@@ -6,10 +6,10 @@ class indexModel{
 
 	private static $messages = ['hello','greetings', 'olah senior'];
 
-	public function getMessage($name){
+	public function getMessage(){
 		$length = count(static::$messages);
 		$length--;
 		$rand = rand(0,$length);
-		return static::$messages[$rand].' '. $name;
+		return static::$messages[$rand];
 	}
 }

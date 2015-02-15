@@ -2,7 +2,7 @@
 
 
 $app->get('/',function($results, $recourses){
-	//include('controllers/indexController.php');
+
 	$controller = new app\controllers\indexController();
 	return $recourses['loadTemplate']()
 		->render('index.tpl',
