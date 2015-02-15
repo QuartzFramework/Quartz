@@ -19,3 +19,8 @@ $app->get('/a/{test}',function($results, $recourses){
 	return $recourses;
 });
 
+if(!$app->matches()):
+	$app->setRoute('404')->get('404',function($results, $recourses){
+		return $recourses['loadTemplate']()->render('404.tpl', array());
+	});
+endif;

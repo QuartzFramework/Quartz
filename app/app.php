@@ -1,5 +1,6 @@
 <?php
 /**
+ * Lots of work has to be done here, refactor and cleaning up is quite important
  * @author Matti van de Weem <mvdweem@gmail.com>
  */
 
@@ -109,11 +110,7 @@ class App {
 
 		$stack = [];
 		foreach($this->stack['prints'] as $print):
-			if(is_string($print)):
-				$stack[] = $print;
-			else:
-				$stack[] = $print;
-			endif;
+			$stack[] = $print;
 		endforeach;
 
 		if(strtolower($this->settings['return']) === 'json'):
@@ -122,6 +119,19 @@ class App {
 		return $stack;
 	}
 
+	public function matches(){
+		if(isset($this->stack['prints']) && !empty($this->stack['prints'])):
+			return count($this->stack['prints']);
+		endif;
+		return 0;
+	}
+
+	public function setRoute($route){
+		static::$route = $route;
+		return $this;
+	}
+
+
 	public function add($alias, $recourse){
 		$this->stack['resources'][$alias] = $recourse;
 	}
@@ -129,7 +139,11 @@ class App {
 	public function renderView($contents){
 		if(is_array($contents)):
 			foreach($contents as $content):
-				echo $content;
+				if(is_string($content)):
+					echo $content;
+				else:
+					print_r($content);
+				endif;
 			endforeach;
 			return;
 		endif;
