@@ -1,0 +1,6 @@
+<?php
+$tasks = [
+
+	'serve' => 'chiselServe'
+
+];

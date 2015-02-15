@@ -1,0 +1,16 @@
+<?php
+
+
+require_once('vendor/autoload.php');
+$climate = new League\CLImate\CLImate;
+require_once('app/chisel/chiselTasks.php');
+
+if(isset($tasks[$argv[1]]) && !empty($tasks[$argv[1]])):
+	$climate->backgroundBlue()->white()->out(' Chisel '.$argv[1].' ');
+
+	require_once('app/chisel/'.$tasks[$argv[1]].'.php');
+	$t = 'app\chisel\\'.$tasks[$argv[1]];
+	$task = new $t($climate);
+endif;
+
+?>

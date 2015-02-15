@@ -1,6 +1,7 @@
 {
     "require": {
         "twig/twig": "~1.0",
-        "filp/whoops": "~1.1"
+        "filp/whoops": "~1.1",
+        "league/climate": "~2.6"
     }
 }

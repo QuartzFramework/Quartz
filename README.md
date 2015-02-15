@@ -5,6 +5,8 @@ Name not choosen, but it's a flexible fast development framework for php
 Currently there are no install methods. This since we are still under heavy development.
 To use the Framework you can clone this repo.
 
+#### Run composer install!
+
 ## description
 [Framework] Is an PHP Framework (Wow just the 12000th!). It's more a personal experiment then something usefull, but if you like it you might want to help me by forking it.
 
@@ -18,3 +20,19 @@ To use the Framework you can clone this repo.
 
 -- Controllers are autoloaded, (i'm working on this part): Models should be used from within the controller
 
+## how does it work?
+
+We got an awsome index file! this file calls the bootstrap, and your routes (Yes this could've been combined but i did not like it). The bootstrap loads all your deps and stuff, and the index will render stuff out for you. also there is an appconfig, and some other stuff .. yea some documentation is on its way :x
+
+
+# Chisel
+Using Chisel?
+
+#### set up an web server
+	php chisel serve
+
+... more to come ;)
+ - migrate
+ - backup
+ - install
+ - ....
