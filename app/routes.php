@@ -16,7 +16,7 @@ $app->get('/',function($results, $recourses){
 
 
 $app->get('/a/{test}',function($results, $recourses){
-	return $recourses;
+	return array_merge($recourses,$results);
 });
 
 

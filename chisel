@@ -10,7 +10,10 @@ if(isset($tasks[$argv[1]]) && !empty($tasks[$argv[1]])):
 
 	require_once('app/chisel/'.$tasks[$argv[1]].'.php');
 	$t = 'app\chisel\\'.$tasks[$argv[1]];
-	$task = new $t($climate);
+	$task = new $t($argv,$climate);
+else:
+	$climate->red($argv[1].' Was not found, try "php chisel help"');
+	exit;
 endif;
 
 ?>
