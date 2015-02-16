@@ -29,7 +29,10 @@ We got an awsome index file! this file calls the bootstrap, and your routes (Yes
 Using Chisel?
 
 #### set up an web server
-	php chisel serve
+	php chisel serve [-p=4000] [-o]
+ - -p Sets the port the server will be ran on (default 9000)
+ - -o opens the link in your default browser ('this is almost working well')
+
 
 ... more to come ;)
  - migrate

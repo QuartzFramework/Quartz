@@ -23,14 +23,15 @@ class chiselServe{
 		endif;
 		$this->cli->info('Starting server on http://localhost:'.$port);
 		$this->cli->info('To close the server [ctrl] + [c]');
-
+		
+		shell_exec('php -S localhost:'.$port.' app/chisel/serve/router.php');
+		
 		if(isset($this->options['o'])):
 			$this->cli->info('Opening your project');
-			shell_exec('sleep 1 && open http://localhost:'.$port.'');
+			exec('open http://localhost:'.$port);
 		endif;
 
-		/// run the server last, else shell will stop :')
-		shell_exec('php -S localhost:'.$port.' app/chisel/serve/router.php');
+		
 
 	}
 
