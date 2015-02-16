@@ -1,0 +1,5 @@
+composer.phar
+composer.lock
+vendor
+.DS_store
+local_tests
