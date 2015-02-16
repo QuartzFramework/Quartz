@@ -5,7 +5,7 @@ namespace app\chisel;
 
 class chiselServe{
 
-	private $cli;
+	private $cli; # this should not be here ;)
 	private $args;
 	private $options;
 
@@ -41,21 +41,18 @@ class chiselServe{
 		// $option name, $regex
 		$options = [
 			'o' => '/(-o)/',
-			'p' => '/-p=\"([d])\"/',
+			'p' => '/-p=(\d*)/',
 
 		];
 		$results = [];
 
-		print_r($args);
-
 		foreach($args as $arg):
 			foreach($options as $key => $option):
 				if(preg_match($option, $arg, $matches)):
-					$results[$key] = $matches;
+					$results[$key] = end($matches);
 				endif;
 			endforeach;
 		endforeach;
-
 		$this->options = $results;
 	}
 
