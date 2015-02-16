@@ -1,6 +1,7 @@
 <?php
 $tasks = [
 
-	'serve' => 'chiselServe'
+	'serve' => 'chiselServe',
+	'help' => 'chiselHelp'
 
 ];

@@ -30,6 +30,7 @@ Using Chisel?
 
 #### set up an web server
 	php chisel serve
+	php chisel help
 
 ... more to come ;)
  - migrate

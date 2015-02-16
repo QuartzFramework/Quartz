@@ -5,21 +5,14 @@
  put some autoloading here please
 
 */
-spl_autoload_register(function ($className) {
- 	$className = ltrim($className, '\\');
-    $fileName  = '';
-    $namespace = '';
-    if ($lastNsPos = strripos($className, '\\')) {
-        $namespace = substr($className, 0, $lastNsPos);
-        $className = substr($className, $lastNsPos + 1);
-        $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
-    }
-    $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
-	$last = ltrim(str_replace('app','',array_pop(explode('/app',$fileName))),'/');
-    require $last;
-});
+
+
+// global definization
+$database = new stdClass;
 
 // boot up the app
+require_once('core/autoload.php');
+require_once('settings.php');
 require_once('app.php');
 $app = new App;
 
@@ -28,3 +21,9 @@ require_once(__DIR__.'/../vendor/autoload.php');
 
 // load in the app config
 require_once('appConfig.php');
+
+// link to the path where your routes are defined, they can be define here, but to keep it clean they are moved.
+require_once('routes.php');
+
+// run the app, also wrap it in a render view (this will make shure multiple outputs will be put on to the screen)
+$app->renderView($app->run(['return' => 'default']));

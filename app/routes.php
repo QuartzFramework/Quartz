@@ -8,7 +8,7 @@ $app->get('/',function($results, $recourses){
 		->render('index.tpl',
 				 array(
 						'page' => 'home',
-						'framework' => $recourses['smooth']('framework'),
+						'framework' => 'Quartz',
 						'friendly' => $controller::getFriendlyReminder('Matti')
 					));
 });

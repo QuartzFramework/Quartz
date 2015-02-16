@@ -3,5 +3,5 @@
     RewriteEngine On
 	RewriteRule ^assets/(.*) public/assets/$1 [L]
     RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteRule ^ index.php [QSA,L]
+	RewriteRule ^ app/bootstrap.php [QSA,L]
 </IfModule>
