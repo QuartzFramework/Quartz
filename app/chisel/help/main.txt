@@ -1,0 +1,10 @@
+you did not enter a valid function
+
+try:
+- serve
+	php chisel help serve
+- tasks
+	php chisel help tasks
+
+
+These docs are handmade, missing one? make a pull request.
