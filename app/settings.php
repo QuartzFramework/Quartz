@@ -16,13 +16,13 @@ $adminMail = 'mvdweem@gmail.com';
 define('AppName', '');
 
 // Root dir
-define('ROOT',__DIR__.'/../');
+define('ROOT',realpath(__DIR__.'/../'));
 
 // Envoirment, when envoirment is set we'll overwrite the default envoirment ('Note: you cannot set dev to true and envoirment not to dev')
 define('ENVOIRMENT', 'dev');
 
 // Database
-
+$database 			= new stdClass;
 $database->host 	= 'localhost';
 $database->username = 'root';
 $database->password = '';

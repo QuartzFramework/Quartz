@@ -1,15 +1,5 @@
 <?php
 
-/*
-
- put some autoloading here please
-
-*/
-
-
-// global definization
-$database = new stdClass;
-
 // boot up the app
 require_once('core/autoload.php');
 require_once('settings.php');
