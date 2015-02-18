@@ -6,6 +6,9 @@
 
 		<!--
 			include styling and stuff here
+
+
+			Note This page is more a visual apearence of my mind set.
 		-->
 
 	</head>
@@ -34,7 +37,7 @@
 		<section id="features" class="contentSection secondary">
 			<div class="container">
 				<div>
-					<p> Some lorem doodle here ;)</p>
+					<p>[doodly doo daa DOOOO!!!] Some lorem doodle here ;)</p>
 				</div>
 				<div><ol></ol></div>
 			</div>
@@ -42,7 +45,11 @@
 		<section id="chisel" class="contentSection secondary">
 			<div class="container">
 				<div>
-					<p> Some lorem doodle here ;)</p>
+					<h2>Chisel</h2>
+					<p>Chisel is Quartz's Command Line Tool, Chisel can be used for a lot of uselfull features. And is easy extendable. Chisel plugs directly into the core, this means it has all he features available that are featured inside the core.  </p>
+					<p>
+						Chisel is easy to edit, reuse or even remove. It has it's own folder and all it's dependancys are loaded via the main comopser file, just stripe these down and your ready to go.
+					</p>
 				</div>
 				<div><ol></ol></div>
 			</div>
@@ -50,7 +57,20 @@
 		<section id="design" class="contentSection secondary">
 			<div class="container">
 				<div>
-					<p> Some lorem doodle here ;)</p>
+					<h2>Artchiture</h2>
+					<p>I am supposed to tell something about Quartz Artchiture here, but actually i can't go in all that depth. Since you are building the artchiture yourself. Quartz  just helps you with setting up a propper architecture. </p>
+					<h3>MVC</h3>
+					<p>What a surprise jet another mvc framework, i'm not going in depth about this at this moment</p>
+					<h3>Hexagonal</h3>
+					<p>.. Tell them something about the hexagonal architecture design here maby</p>
+					<h3>Stack</h3>
+					<p>
+						This is the part where Quartz realy comes in. Quartz handles a stack, which is basicly a simple variable given in the root class. Everything that has something to do with data has to come trough the Stack. So you got an overly complicated variable that stores a shit load of useless variables and data? Well if you ask it like that.. Yes.
+
+						But keep in mind that the Stack is extremely easy to write and read to / from the data inside is automaticy depandancy injected and even the slightest of your changes is easy to pull, since .. guess what yes ! it's in the stack!
+
+						But this is a bad habbit? No and yes, keeping a way to big variable is not efficient at all, thats why Quartz manages your stack and it's uses. If there is non used content in your stack we won't use it. If you ahve a piece of content thats used a lot we'll give it priority. If the piority isn't good engough. We might actualy put it in memory for you!
+					</p>
 				</div>
 				<div><ol></ol></div>
 			</div>
