@@ -49,7 +49,7 @@ class App {
 	 * @param  Function $function The function that should be executed when there is a match
 	 * @return boolean  Will return false on no match, will return true and run your funciton on match
 	 */
-	public function match($protocol, $path, $function = false){
+	public function match($protocol, $path, $function = false, $method = NULL){
 
 		if($protocol === $_SERVER['REQUEST_METHOD']):
 
@@ -76,8 +76,16 @@ class App {
 				endif;
 			endforeach;
 
+			// check if the function wants to call indexed controller
+
 			// run the given function
-			if($function):
+			if (is_string($function)):
+				$this->stack['prints'][] = call_user_func(
+					array('\app\controllers\\' . $function, $method),
+					$vars,$this->stack['resources']
+				);
+
+			elseif($function):
 				$this->stack['prints'][] = $function($vars,$this->stack['resources']);
 			endif;
 
@@ -94,8 +102,8 @@ class App {
 	 * @param  Function [$function = false] The function that will be executed on succesfull match
 	 * @return boolean  returns match response
 	 */
-	public function get($path, $function = false){
-		if($this->match('GET',$path,$function)): return true; endif;
+	public function get($path, $function = false, $method = false){
+		if($this->match('GET',$path,$function,$method)): return true; endif;
 		return false;
 	}
 

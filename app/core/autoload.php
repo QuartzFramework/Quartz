@@ -1,4 +1,7 @@
 <?php
+
+function dd () {echo'<pre>';var_dump(func_get_args());die;}
+
 spl_autoload_register(function ($className) {
  	$className = ltrim($className, '\\');
     $fileName  = '';

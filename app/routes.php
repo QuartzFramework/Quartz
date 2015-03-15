@@ -1,17 +1,7 @@
 <?php
 
 
-$app->get('/',function($results, $recourses){
-
-	$controller = new app\controllers\indexController();
-	return $recourses['loadTemplate']()
-		->render('index.tpl',
-				 array(
-						'page' => 'home',
-						'framework' => 'Quartz',
-						'friendly' => $controller::getFriendlyReminder('Matti')
-					));
-});
+$app->get('/', 'indexController', 'indexController');
 
 
 
