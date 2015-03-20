@@ -4,7 +4,7 @@
  * @author Matti van de Weem <mvdweem@gmail.com>
  */
 
-class App {
+class app {
 
 	// The Route that will be used to match paths against.
 	private static $route;
@@ -31,13 +31,7 @@ class App {
 		if($route):
 			static::$route = $route;
 		else:
-			// check if the page is located from index.php or via htacces
-			if (strpos($_SERVER['REQUEST_URI'],'index.php') !== false):
-				$route = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
-				// strip the index.php here please..
-			else:
-				$route = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
-			endif;
+			$route = str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['REQUEST_URI']);
 		endif;
 		static::$route = $route;
 	}

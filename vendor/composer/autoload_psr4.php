@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'quartz\\authentication\\' => array($vendorDir . '/quartz/quartz-authentication/src'),
     'League\\CLImate\\' => array($vendorDir . '/league/climate/src'),
 );

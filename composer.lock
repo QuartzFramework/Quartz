@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f6e3f82e098787643e5240d998cc431c",
+    "hash": "cdac05829ef43f5e055aeee19e1dd093",
     "packages": [
         {
             "name": "filp/whoops",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf"
+                "reference": "dcce91553e2e056857f1ea844949e9a8a71b613d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
-                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/dcce91553e2e056857f1ea844949e9a8a71b613d",
+                "reference": "dcce91553e2e056857f1ea844949e9a8a71b613d",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2014-10-26 09:05:09"
+            "time": "2015-02-17 15:50:31"
         },
         {
             "name": "league/climate",
@@ -112,6 +112,53 @@
                 "terminal"
             ],
             "time": "2015-01-18 14:31:58"
+        },
+        {
+            "name": "quartz/quartz-authentication",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/QuartzFramework/Quartz-Authentication.git",
+                "reference": "48496f76c36470fbb99307b2ef08bcfb6db5ef98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/QuartzFramework/Quartz-Authentication/zipball/48496f76c36470fbb99307b2ef08bcfb6db5ef98",
+                "reference": "48496f76c36470fbb99307b2ef08bcfb6db5ef98",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "quartz\\authentication\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Matti van de Weem",
+                    "email": "matti@hatmedia.nl",
+                    "homepage": "http://www.mattivandeweem.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Default auth protocol",
+            "homepage": "https://github.com/QuartzFramework/quartz-authentication",
+            "time": "2015-03-19 11:58:26"
         },
         {
             "name": "twig/twig",
@@ -174,8 +221,11 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "quartz/quartz-authentication": 20
+    },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
