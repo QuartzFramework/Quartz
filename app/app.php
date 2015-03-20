@@ -101,6 +101,11 @@ class app {
 		return false;
 	}
 
+	/**
+	 * [[Description]]
+	 * @param  [[Type]] [$settings = false] [[Description]]
+	 * @return [[Type]] [[Description]]
+	 */
 	public function run($settings = false){
 		if($settings):
 			$this->settings = array_merge($this->settings,$settings);
@@ -121,6 +126,10 @@ class app {
 		return $stack;
 	}
 
+	/**
+	 * Get all match count
+	 * @return int count of all matches
+	 */
 	public function matches(){
 		if(isset($this->stack['prints']) && !empty($this->stack['prints'])):
 			return count($this->stack['prints']);
@@ -128,16 +137,31 @@ class app {
 		return 0;
 	}
 
+	/**
+	 * Define the current routing
+	 * @param  [[Type]] $route [[Description]]
+	 * @return [[Type]] [[Description]]
+	 */
 	public function setRoute($route){
 		static::$route = $route;
 		return $this;
 	}
 
 
+	/**
+	 * Adds new recourse to recourse stack
+	 * @param [[Type]] $alias    [[Description]]
+	 * @param [[Type]] $recourse [[Description]]
+	 */
 	public function add($alias, $recourse){
 		$this->stack['resources'][$alias] = $recourse;
 	}
 
+	/**
+	 * Render the current view
+	 * todo: Move this function oustside routing
+	 * @param mixed $contents contents to be rendered
+	 */
 	public function renderView($contents){
 		if(is_array($contents)):
 			foreach($contents as $content):
