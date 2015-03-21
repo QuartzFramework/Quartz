@@ -12,6 +12,11 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 
+
+
+
+
+
 $app->add('loadTemplate',function(){
 	$loader = new Twig_Loader_Filesystem('public/views/');
 	return new Twig_Environment($loader);
@@ -44,3 +49,16 @@ $app->add('authentication',function(){
 		dd(array('Authentication error' => 'Login credentials did not match'));
 	}
 });
+
+
+require_once(__DIR__.'/appRegister.php');
+
+
+foreach ($appRegister['vendor'] as $key => $vendor):
+
+	$$vendor = new $key;
+	$$vendor->setStack($app->getStack());
+	$app->setStack($$vendor->getStack());
+
+endforeach;
+

@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'quartz\\authentication\\' => array($vendorDir . '/quartz/quartz-authentication/src'),
+    'quartz\\Routing\\' => array($vendorDir . '/quartz/routing/src'),
     'League\\CLImate\\' => array($vendorDir . '/league/climate/src'),
 );

@@ -20,7 +20,6 @@ class indexController extends Controller{
 		if (isset($results['name']) && $results['name'] != ''):
 			$friendly = self::getFriendlyReminder($results['name']);
 		endif;
-
 		return $recourses['loadTemplate']()->render('index.tpl',
 				 array(
 						'page' => 'home',
